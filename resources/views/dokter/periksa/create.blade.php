@@ -21,7 +21,7 @@
         </div>
         <div class="main-content mt-2">
             <div class="card-body">
-                <form action="{{route('jadwal_periksa.store')}}" method="POST">
+                <form action="{{ route('jadwal_periksa.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="" class="form-label">Nama Dokter</label>
@@ -32,7 +32,7 @@
                         <select name="hari_id" class="form-control">
                             <option value="">Pilih Hari</option>
                             @foreach ($haris as $hari)
-                                <option value="{{$hari->id}}">{{$hari->hari}}</option>
+                                <option value="{{ $hari->id }}">{{ $hari->hari }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -43,6 +43,15 @@
                     <div class="form-group">
                         <label for="" class="form-label">Jam Selesai</label>
                         <input type="time" class="form-control" name="selesai">
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="form-label">STATUS</label>
+                        <select name="status_id" id="" class="form-control">
+                            <option value="">Pilih Status Dokter</option>
+                            @foreach ($status as $status)
+                                <option value="{{$status->id}}">{{$status->status}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button class="btn btn-primary">Submit</button>
                 </form>

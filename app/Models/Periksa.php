@@ -13,4 +13,8 @@ class Periksa extends Model
     {
         return $this->belongsTo(Hari::class);
     }
+    public function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 }

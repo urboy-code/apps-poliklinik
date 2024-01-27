@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Hari;
 use App\Models\Periksa;
+use App\Models\Status;
 use Illuminate\Http\Request;
 
 class PeriksaController extends Controller
@@ -23,7 +24,8 @@ class PeriksaController extends Controller
     public function create()
     {
         $haris = Hari::all();
-        return view('dokter.periksa.create', compact('haris'));
+        $status = Status::all();
+        return view('dokter.periksa.create', compact('haris', 'status'));
     }
 
     /**
@@ -36,6 +38,7 @@ class PeriksaController extends Controller
             'hari_id' => 'required|integer',
             'mulai' => 'required',
             'selesai'=>'required',
+            'status_id' => 'required|integer',
         ]);
 
         $periksa = new Periksa();
@@ -43,6 +46,7 @@ class PeriksaController extends Controller
         $periksa->hari_id = $request->hari_id;
         $periksa->mulai = $request->mulai;
         $periksa->selesai = $request->selesai;
+        $periksa->status_id = $request->status_id;
         $periksa->save();
 
         return redirect()->route('jadwal_periksa.index');
@@ -63,7 +67,8 @@ class PeriksaController extends Controller
     {
         $periksa = Periksa::findOrFail($id);
         $haris = Hari::all();
-        return view('dokter.periksa.edit', compact('periksa', 'haris'));
+        $status = Status::all();
+        return view('dokter.periksa.edit', compact('periksa', 'haris', 'status'));
     }
 
     /**
@@ -77,6 +82,7 @@ class PeriksaController extends Controller
             'hari_id' => 'required|integer',
             'mulai' => 'required',
             'selesai' => 'required',
+            'status_id' => 'required|integer',
         ]);
 
         $periksa = Periksa::findOrFail($id);
@@ -84,6 +90,7 @@ class PeriksaController extends Controller
         $periksa->hari_id = $request->hari_id;
         $periksa->mulai = $request->mulai;
         $periksa->selesai = $request->selesai;
+        $periksa->status_id = $request->status_id;
         $periksa->save();
 
         return redirect()->route('jadwal_periksa.index');

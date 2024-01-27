@@ -24,7 +24,8 @@
                             <th scope="col" style="width: 10%">Hari</th>
                             <th scope="col" style="width: 20%">Jam Mulai</th>
                             <th scope="col" style="width: 10%">Jam Selesai</th>
-                            <th scope="col" style="width: 20%">Aksi</th>
+                            <th scope="col" style="width: 10%">Status</th>
+                            <th scope="col" style="width: 10%">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,15 +36,11 @@
                                 <td>{{ $periksa->hari->hari }}</td>
                                 <td>{{ $periksa->mulai }}</td>
                                 <td>{{ $periksa->selesai }}</td>
+                                <td>{{$periksa->status->status}}</td>
                                 <td>
                                     <div class="d-flex">
-                                        <a href="{{route('jadwal_periksa.edit', $periksa->id)}}" class="btn btn-primary">Edit</a>
-
-                                        <form action="{{route('jadwal_periksa.destroy', $periksa->id)}}" method="POST">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger mx-1">Delete</button>
-                                        </form>
+                                        <a href="{{ route('jadwal_periksa.edit', $periksa->id) }}"
+                                            class="btn btn-primary">Edit</a>
                                     </div>
                                 </td>
                             </tr>
