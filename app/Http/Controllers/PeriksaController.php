@@ -6,6 +6,7 @@ use App\Models\Hari;
 use App\Models\Periksa;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PeriksaController extends Controller
 {
@@ -15,7 +16,8 @@ class PeriksaController extends Controller
     public function index()
     {
         $periksa = Periksa::all();
-        return view('dokter.periksa.index', compact('periksa'));
+        $user_name = Auth::user()->name;
+        return view('dokter.periksa.index', compact('periksa', 'user_name'));
     }
 
     /**
@@ -25,7 +27,8 @@ class PeriksaController extends Controller
     {
         $haris = Hari::all();
         $status = Status::all();
-        return view('dokter.periksa.create', compact('haris', 'status'));
+        $user_name = Auth::user()->name;
+        return view('dokter.periksa.create', compact('haris', 'status', 'user_name'));
     }
 
     /**

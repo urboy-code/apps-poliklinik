@@ -25,7 +25,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="" class="form-label">Nama Dokter</label>
-                        <input type="text" class="form-control" name="nama">
+                        <input type="text" class="form-control" name="nama" value="{{$user_name}}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="" class="form-label">Hari</label>

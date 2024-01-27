@@ -32,7 +32,7 @@
                         @foreach ($periksa as $periksa)
                             <tr>
                                 <th scope="row">{{ $periksa->id }}</th>
-                                <td>{{ $periksa->nama }}</td>
+                                <td>{{ $user_name }}</td>
                                 <td>{{ $periksa->hari->hari }}</td>
                                 <td>{{ $periksa->mulai }}</td>
                                 <td>{{ $periksa->selesai }}</td>
