@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pasien;
 use Illuminate\Http\Request;
 
-class PasienController extends Controller
+class PasienDaftarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,16 +13,15 @@ class PasienController extends Controller
     public function index()
     {
         $pasien = Pasien::all();
-        
-        return view('pasien.pasien', compact('pasien'));
-    }  
+        return view('pasienLayout.daftarPasien.index', compact('pasien'));
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        
+        return view('pasienLayout.daftarPasien.create');
     }
 
     /**
@@ -30,7 +29,21 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-       
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'ktp' => 'required|integer',
+            'hp' => 'required|integer',
+        ]);
+
+        $pasien = new Pasien();
+        $pasien->nama = $request->nama;
+        $pasien->alamat = $request->alamat;
+        $pasien->ktp = $request->ktp;
+        $pasien->hp = $request->hp;
+        $pasien->save();
+
+        return redirect()->route('daftar.index');
     }
 
     /**
@@ -38,7 +51,7 @@ class PasienController extends Controller
      */
     public function show(string $id)
     {
-        
+        //
     }
 
     /**
@@ -47,7 +60,7 @@ class PasienController extends Controller
     public function edit(string $id)
     {
         $pasien = Pasien::findOrFail($id);
-        return view('pasien.editPasien', compact('pasien'));
+        return view('pasienLayout.daftarPasien.edit', compact('pasien'));
     }
 
     /**
@@ -69,7 +82,7 @@ class PasienController extends Controller
         $pasien->hp = $request->hp;
         $pasien->save();
 
-        return redirect()->route('pasien.index');
+        return redirect()->route('daftar.index');
     }
 
     /**
@@ -80,6 +93,6 @@ class PasienController extends Controller
         $pasien = Pasien::findOrFail($id);
         $pasien->delete();
 
-        return redirect()->route('pasien.index');
+        return redirect()->route('daftar.index');
     }
 }

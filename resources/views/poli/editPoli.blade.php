@@ -11,11 +11,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Poli</h1>
+                        <h1 class="m-0">Edit Poli</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6 d-flex justify-content-end">
-                        <a href="{{ route('dokter.create') }}" class="btn btn-success mx-1">Add</a>
-                        <a href="{{ route('dokter.trashed') }}" class="btn btn-warning mx-1">Trashed</a>
+                        <a href="{{ route('poli.index') }}" class="btn btn-success mx-1">Back</a>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div>

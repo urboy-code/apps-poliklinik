@@ -6,10 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Pasien</h1>
-                    </div><!-- /.col -->
-                    <div class="col-sm-6 d-flex justify-content-end">
-                        <a href="{{ route('pasien.create') }}" class="btn btn-success mx-1">Add</a>
+                        <h1 class="m-0">Daftar Pasien</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div>
@@ -24,7 +21,6 @@
                             <th scope="col" style="width: 30%">Alamat</th>
                             <th scope="col" style="width: 15%">No. KTP</th>
                             <th scope="col" style="width: 12%">No. Hp</th>
-                            <th scope="col" style="width: 20%">No. RM</th>
                             <th scope="col" style="width: 20%">Aksi</th>
                         </tr>
                     </thead>
@@ -36,7 +32,6 @@
                                 <td>{{$pasien->alamat}}</td>
                                 <td>{{$pasien->ktp}}</td>
                                 <td>{{$pasien->hp}}</td>
-                                <td>{{date('Ym', strtotime($pasien->created_at))}}</td>
                                 <td>
                                     <div class="d-flex">
                                         <a href="{{route('pasien.edit', $pasien->id)}}" class="btn btn-primary">Edit</a>

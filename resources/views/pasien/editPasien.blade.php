@@ -11,7 +11,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tambahkan Pasien</h1>
+                        <h1 class="m-0">Edit Pasien</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6 d-flex justify-content-end">
                         <a href="{{ route('pasien.index') }}" class="btn btn-success">Back</a>

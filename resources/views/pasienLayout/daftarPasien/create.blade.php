@@ -1,4 +1,4 @@
-@extends('adminLayout.master')
+@extends('pasienLayout.master')
 
 @section('content')
     <div class="content-wrapper">
@@ -11,10 +11,10 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tambahkan Pasien</h1>
+                        <h1 class="m-0">Daftar</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6 d-flex justify-content-end">
-                        <a href="{{ route('pasien.index') }}" class="btn btn-success">Back</a>
+                        <a href="{{ route('daftar.index') }}" class="btn btn-success">Back</a>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div>
@@ -23,7 +23,7 @@
         <div class="main-content mt-2">
             <div class="card-body">
 
-                <form action="{{ route('pasien.store') }}" method="POST">
+                <form action="{{ route('daftar.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="" class="form-label">Nama</label>
