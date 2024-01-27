@@ -84,14 +84,21 @@ class PeriksaController extends Controller
             'selesai' => 'required',
             'status_id' => 'required|integer',
         ]);
-
         $periksa = Periksa::findOrFail($id);
+        
+        if($request->status_id == 1){
+            Periksa::where('id', '!=', $id)->update(['status_id' => 2]);
+        }
+        
         $periksa->nama = $request->nama;
         $periksa->hari_id = $request->hari_id;
         $periksa->mulai = $request->mulai;
         $periksa->selesai = $request->selesai;
         $periksa->status_id = $request->status_id;
+        $periksa->update(['status_id' => $request->status_id]);
         $periksa->save();
+
+
 
         return redirect()->route('jadwal_periksa.index');
     }

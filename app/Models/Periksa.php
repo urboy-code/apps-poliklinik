@@ -9,6 +9,8 @@ class Periksa extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['status_id'];
+
     public function hari()
     {
         return $this->belongsTo(Hari::class);
@@ -17,4 +19,6 @@ class Periksa extends Model
     {
         return $this->belongsTo(Status::class);
     }
+
+
 }
